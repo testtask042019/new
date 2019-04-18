@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+            <title>microblog</title>
+    </head>
+    <body><center><h1>Microblog</h1></center>
+     <div>
+        {% for post in posts %}
+        <p>{{ post.text}}</p>
+        {% endfor %}
+    </div>
+
+        <br><div>
+                <h2>Add new post</h2>
+	    <form method="POST" >{% csrf_token %}
+        	{{ form.as_p }}
+        	<button type="submit" >Save</button>
+    	    </form>
+
+        </div>
+
+            
+
+    </body>
+</html>
+
